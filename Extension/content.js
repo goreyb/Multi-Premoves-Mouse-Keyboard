@@ -292,9 +292,10 @@ if (useUltrabulletTheme === true) {
   }
 }
 
-let isGame = /^https:\/\/(lichess\.org|lichess\.dev|mskchess\.ru)\/(\w{8}|\w{12})(\/white|\/black)?$/.test(
-  window.location.href
-);
+let isGame =
+  /^https:\/\/(lichess\.org|lichess\.dev|mskchess\.ru)\/(\w{8}|\w{12})(\/white|\/black)?$/.test(
+    window.location.href
+  );
 
 if (settingsObject.createUI === true) {
   chrome.runtime.onMessage.addListener(function (
@@ -473,9 +474,8 @@ if (isGame === true) {
             (myClock = document.getElementsByClassName(
               'rclock rclock-bottom'
             )[0]),
-              (opClock = document.getElementsByClassName(
-                'rclock rclock-top'
-              )[0]);
+              (opClock =
+                document.getElementsByClassName('rclock rclock-top')[0]);
             let myTimeEl = myClock.getElementsByClassName('time')[0];
             let oppTimeEl = opClock.getElementsByClassName('time')[0];
             if (!myTimeEl || !oppTimeEl) return;
@@ -1237,23 +1237,37 @@ const modify = () => {
           }
 
           let stateMatch = completed.match(
-            /const ([a-zA-Z]+) ?= ?([a-zA-Z0-9_]+)\.defaults\(\);/
+            /*  /const ([a-zA-Z]+) ?= ?([a-zA-Z0-9_]+)\.defaults\(\);/ */
+            /\(([a-zA-Z]+)\,([a-zA-Z]+)\)\{const ([a-zA-Z]+)=\{/
           )[0];
-          let localConst = stateMatch
-            .match(/const ([a-zA-Z]+) ?=/)[0]
-            .substr(6)
-            .replace(/ ?=/, '');
+          console.log(stateMatch); // (e,t){const o={
+          const toReplace = stateMatch.match(/const ([a-zA-Z]+)/, ''); // const o
+          const replacement =
+            stateMatch.match(/\(([a-zA-Z]+)\,([a-zA-Z]+)\)\{/)[0] +
+            toReplace[0] +
+            '=globalStateReference={';
+          //let localConst = stateMatch
+          // .match(/const ([a-zA-Z]+) ?=/)[0]
+          // .substr(6)
+          // .replace(/ ?=/, '');
           completed = completed.replace(
             stateMatch,
-            `const ${localConst} = globalStateReference = ${
+            replacement
+            /* `const ${localConst} = globalStateReference = ${
               stateMatch.match(/([a-zA-Z]+)\.defaults\(\);/)[0]
-            }`
+            }` */
           );
-
+          //this.setChessground=e=>{this.chessground=e
+          // /\{this.chessground=([a-zA-Z]+)/;
           let boardMatch = completed.match(
-            /[a-zA-Z]+=[a-zA-Z]+\(\(function\([a-zA-Z]+,[a-zA-Z]+\){function [a-zA-Z]+\([a-zA-Z]+,\.\.\.[a-zA-Z]+\)/
-          )[0];
-          let replaceWith = boardMatch.replace('=', '=globalBoardReference=');
+            // /[a-zA-Z]+=[a-zA-Z]+\(\(function\([a-zA-Z]+,[a-zA-Z]+\){function [a-zA-Z]+\([a-zA-Z]+,\.\.\.[a-zA-Z]+\)/
+            /\{this\.chessground=([a-zA-Z]+)/
+          )[0]; // {this.chessground=e
+          let replaceWith = boardMatch.replace(
+            /\{this\.chessground=/,
+            '{this.chessground=globalBoardReference='
+            //'=globalBoardReference='
+          );
           completed = completed.replace(boardMatch, replaceWith);
 
           /*  let outComingMoveMatch = completed.match(/[a-zA-Z]+\.stats\.dragged ?= ?!0/)[0];
