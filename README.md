@@ -1,6 +1,4 @@
-**KB installation: https://chrome.google.com/webstore/detail/lichess-keyboard-input/beaekfhgnpkeaemddboeojhljnjoebfl**
-
-**Currently the extensions are not actively maintained and have bugs and may break at any point. I'm not playing ultra that much nowadays, so I'm not working on the extensions anymore, but hopefully someone could continue this work or, perhaps, if someone rich can sponsor me, I will continue working on them myself: https://www.patreon.com/posts/lichess-keyboard-53287800 (as a job).**
+**Currently the extensions are not actively maintained and have bugs and may break at any point. I'm not playing ultra that much nowadays, so I'm not working on the extensions anymore, but hopefully someone could continue this work or, perhaps, if someone rich can sponsor me, I will continue working on them myself: https://www.patreon.com/posts/lichess-keyboard-53287800 (as a freelance job).**
 
 **You can also contribute by coding or by hiring other coders, and I will merge your pull requests on GitHub**
 
