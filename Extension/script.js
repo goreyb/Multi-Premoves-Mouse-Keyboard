@@ -1555,8 +1555,8 @@ if (isGame === true) {
                transform = objGA[name].style.transform;
             }
             let extraction = transform.split(',');
-            extraction[0] = extraction[0].replace(/\D/g, '');
-            extraction[1] = extraction[1].replace(/\D/g, '');
+            extraction[0] = Number(extraction[0].replace(/[^0-9.]/g, ''));
+            extraction[1] = Number(extraction[1].replace(/[^0-9.]/g, ''));
             return [extraction[0] / objGA.squareS + 1, 8 - extraction[1] / objGA.squareS];
          } catch (e) { return void 0 }
       },
