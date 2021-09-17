@@ -2,10 +2,7 @@
 
 **You can also contribute by coding or by hiring other coders, and I will merge your pull requests on GitHub**
 
-# Multi Premoves For Mouse and Keyboard
- Creating unlimited multiple premoves compatible with all Lichess styles of playing (keyboard, mouse, touchscreen)
- 
-# The extension might break, but I've found that the most stable cofiguration is the following (for kb only use):
+# The extension might break sometimes, but I've found that the most stable cofiguration is the following (for kb only use):
 - The option 'How do you move pieces' (https://lichess.org/account/preferences/game-behavior) should be set to 'drag'. (if you then want to use the previous kb extension, it should be set to `clicks` or `both`)
 - `Autoqueen` should be turned on: https://lichess.org/account/preferences/game-behavior
 - Castling should be set to 'Move king onto rook'. https://lichess.org/account/preferences/game-behavior
@@ -16,6 +13,9 @@ Now click the extension's icon and use these settings (don't forget to click 'sa
 - Use mouse: off
 
 Other settings should probably not affect stability.
+ 
+# Multi Premoves For Mouse and Keyboard
+Creating unlimited multiple premoves compatible with all Lichess styles of playing (keyboard, mouse, touchscreen)
  
 # Important:
 - This extension also includes keyboard.
