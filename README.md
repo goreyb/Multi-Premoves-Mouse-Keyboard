@@ -12,6 +12,8 @@ Now click the extension's icon and use these settings (don't forget to click 'sa
 - Use keyboard: on
 - Use mouse: off
 
+Your page zoom might need to be set to 100% (haven't tested it thorougly)
+
 Other settings should probably not affect stability.
  
 # Multi Premoves For Mouse and Keyboard
