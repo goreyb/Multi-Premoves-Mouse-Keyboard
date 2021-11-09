@@ -1,6 +1,6 @@
 FROM node:16
 
-WORKDIR /usr/src/Lichess-Keyboard-Input/Extension (drag this folder into Chrome)
+WORKDIR /usr/src/Multi-Premoves-Mouse-Keyboard/Extension
 
 COPY package*.json ./
 
